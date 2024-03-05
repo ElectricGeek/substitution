@@ -1,8 +1,6 @@
 #----------A Program that substitutes words of a txt file to what user inputs----------#
 import sys
 
-
-
 def subs():
     buffer = {}
     while True: 
@@ -20,14 +18,12 @@ def subs():
 
 def main():
 
-    #usage
     if len(sys.argv) != 2:
         print("Usage: python sub.py text.txt")
         return 1
+
     text_file = sys.argv[1]
-    #get user inputted substitutions
     substitutions = subs()
-    #sub word use split to iterate through a copy of the words if needed
 
     buffer = "" 
     with open(text_file,'r') as file:
@@ -40,31 +36,11 @@ def main():
                     buffer += word + " "
             buffer += "\n"
 
-
     #instead of ruining the original file.txt --> output it as output.txt
     with open("output.txt", 'w') as file:
         file.write(buffer)
 
     print("Program finished! Check the text!")
 
-
-            
-
-            
-        
-
-        
-
-    #output file
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     main()
-
