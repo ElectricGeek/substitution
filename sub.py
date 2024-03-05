@@ -15,6 +15,16 @@ def subs():
             break
 
     return buffer
+#
+def split_punctuation(word):
+    buffer = ""
+    punctuation = ''
+    for symbol in word:
+        if symbol not in ['!', '.', '?', ',', "'"]:
+            buffer += symbol
+        else:
+            punctuation = symbol
+    return buffer, punctuation
 
 def main():
 
@@ -30,8 +40,9 @@ def main():
 
         for row in file:
             for word in row.split():
+                word, punctuation = split_punctuation(word)
                 if word in substitutions:
-                    buffer += substitutions[word] + " "
+                    buffer += substitutions[word] + punctuation + " "
                 else:
                     buffer += word + " "
             buffer += "\n"
