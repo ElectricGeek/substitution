@@ -39,7 +39,10 @@ def main():
                 else:
                     buffer += word + " "
             buffer += "\n"
-    with open(text_file, 'w') as file:
+
+
+    #instead of ruining the original file.txt --> output it as output.txt
+    with open("output.txt", 'w') as file:
         file.write(buffer)
 
     print("Program finished! Check the text!")
